@@ -1,0 +1,252 @@
+console_title_template = '{{ .Shell }} @ {{ .Folder }}'
+version = 3
+final_space = true
+shell_integration = true
+patch_pwsh_bleed = true
+
+[palette]
+  black = '#262B44'
+
+  fg0 = '#fbf1c7'
+  fg1 = '#ebdbb2'
+  fg2 = '#d5c4a1'
+  fg3 = '#bdae93'
+  fg4 = '#a89984'
+  bg0_h = '#1d2021' 
+  bg0 = '#282828'
+  bg0_s = '#32302f'
+  bg1 = '#3c3836'
+  bg2 = '#504945'
+  bg3 = '#665c54'
+  bg4 = '#7c6f64'
+  red = '#cc241d'
+  red1 = '#fb4934'
+  green = '#98971a'
+  green1 = '#b8bb26'
+  yellow = '#d79921'
+  yellow1 = '#fabd2f'
+  blue = '#458588'
+  blue1 = '#83a598'
+  purple = '#b16286'
+  purple1 = '#d3869b'
+  aqua = '#689d6a'
+  aqua1 = '#8ec07c'
+  gray = '#a89984'
+  orange = '#d65d0e'
+  orange1 = '#fe8019'
+
+[secondary_prompt]
+  template = ' > '
+  foreground = 'p:yellow'
+  background = 'transparent'
+
+[transient_prompt]
+  template = "<p:bg4,transparent>¯éÂ</><p:bg1,p:bg4>{{.PromptCount}}. {{if eq .PWD \"~\"}}¯Àà Jony{{ else }}{{.PWD}}{{end}}</><p:bg4,transparent>¯é┤ </>" 
+  foreground = 'p:bg1'
+  background = 'background'
+
+[upgrade]
+  source = 'cdn'
+  interval = '168h'
+  auto = true
+  notice = true
+
+[[blocks]] # Prompt esquerda
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]] # Upgrade
+    type = 'upgrade'
+    template = '´Çí '
+    style = 'plain'
+    foreground = 'p:red'
+    background = 'transparent'
+
+    [blocks.segments.properties]
+      cache_duration = '48h'
+
+  [[blocks.segments]] # Root ou usu├írio?
+    type = 'session'
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = '¯é┤'
+    background= 'p:orange'
+    foreground = 'p:fg0'
+    template = '{{ if .Root }}¯Àê {{ else }}´Çç {{ end }}'
+
+    [blocks.segments.properties]
+      always_enabled = true
+
+  [[blocks.segments]] # Pastas
+    type = 'path'
+    style = 'diamond'
+    leading_diamond = ''
+    trailing_diamond = '¯é┤'
+    foreground = 'p:fg0'
+    background = 'p:yellow'
+    template = " <b>{{.Path}} {{ path \"´éÄ \" .Location }}</b>" 
+    
+    [blocks.segments.properties]
+      home_icon = "¯Àà Jony"
+      folder_icon = "¯½À "
+      folder_separator_template = "/¯½À "  
+      style = "full"
+      mapped_locations_enabled = true
+      
+      [blocks.segments.properties.mapped_locations]
+        "~" = "¯Àà Jony"
+        "~/Documents/Powershell" = "¾░¿è pwsh"
+        "~/OneDrive" = "¾░Åè Jony"
+        "~/OneDrive - Tribunal de Justica de Sao Paulo" = "¾░Åè TJ"
+        "~/Projetos" = "´üä Proj"
+        "/mnt/c/Users/jonyd" = "¯Àà Jony"
+        "/mnt/c/Users/jonyd/Documents/Powershell" = "¾░¿è pwsh"
+        "/mnt/c/Users/jonyd/OneDrive" = "¾░Åè Jony"
+        "/mnt/c/Users/jonyd/OneDrive - Tribunal de Justica de Sao Paulo" = "¾░Åè TJ"
+        "/mnt/c/Users/jonyd/Projetos" = "´üä Proj"
+
+  [[blocks.segments]] # Ponta do git
+    type= "text"        
+    style = 'diamond'
+    leading_diamond = ''
+    trailing_diamond = '¯é┤'
+    foreground = 'p:fg0'
+    background = 'p:aqua'
+    template= "<></>"
+
+  [[blocks.segments]] # Git
+    type = 'git'
+    style = 'diamond'
+    leading_diamond = ''
+    trailing_diamond = '¯é┤'
+    template = '{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Staging.Changed }} ´üå {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} ´üä {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} ¯¡ï {{ .StashCount }}{{ end }}'
+    foreground = 'p:fg0'
+    background = 'p:aqua'
+    background_templates =[
+      '{{ if or (.Working.Changed) (.Staging.Changed) }} {{p:purple}} {{ end }}',
+      '{{ if and (gt .Ahead 0) (gt .Behind 0) }} {{p:red}}{{ end }}',
+      '{{ if gt .Ahead 0 }} {{p:blue}} {{ end }}',
+      '{{ if gt .Behind 0 }} {{p:purple}} {{ end }}'
+    ]
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_status = true
+      always_enabled = true
+  
+  [[blocks.segments]] # Projetos
+    type = 'project'
+    style = 'diamond'
+    leading_diamond = ''
+    trailing_diamond = '¯é┤ '
+    foreground = 'p:fg0'
+    background = 'p:blue'
+    template = '<></>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} ´Æç {{.Version}}{{ end }}{{ end }}' 
+      [blocks.segments.properties]
+      always_enabled = true
+
+  [[blocks.segments]] # Status
+    type = 'status'
+    style = 'plain'
+    template = '{{if .Code}}´ö░ {{end}}'
+    foreground = 'p:red'
+
+  [[blocks.segments]] # Shell
+    type = 'shell'
+    style = 'plain'
+    foreground = 'p:blue'
+    template = ' {{ .Name }}'
+
+[[blocks]] # Prompt direita
+  type = 'prompt'
+  alignment = 'right'
+  tooltips_action = "replace"
+
+  [[blocks.segments]] # Tempo de execu├º├úo
+  type = "executiontime"
+  style = "plain"
+  foreground = "p:bg4"
+  background = "background"
+  template = "´öá {{ .FormattedMs }} "
+    [blocks.segments.properties]
+    threshold = 0
+
+  [[blocks.segments]] # Bun
+    type = "bun"
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = ''
+    foreground = "p:bg0_s"
+    background = "p:fg3"
+    template = "¯Ø» "
+
+  [[blocks.segments]] # Deno
+    type = "deno"
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = ''
+    foreground = "p:fg0"
+    background = "p:bg0_h"
+    template = "¯ƒÇ "
+      [blocks.segments.properties]
+        extensions = ["deno.json"]
+
+  [[blocks.segments]] # React
+    type = "react"
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = ''
+    foreground = "p:fg0"
+    background = "p:blue"
+    template = "¯×║ "
+  
+  [[blocks.segments]] # Golang
+    type = "go"
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = ''
+    foreground = "p:fg0"
+    background = "p:blue"
+    template = "¾░ƒô  "
+    
+  [[blocks.segments]] # Node
+    type = "node"
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = ''
+    foreground = "p:fg0"
+    background = "p:green"
+    template = "¯£ÿ "
+      [blocks.segments.properties]
+        extensions = ["package.json", ".nvmrc", "pnpm-workspace.yaml", ".pnpmfile.cjs", ".vue"] 
+
+
+  [[blocks.segments]] # Python
+    type = "python"
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = ''
+    foreground = "p:fg0"
+    background = "p:yellow"
+    template = "¯êÁ "
+
+  [[blocks.segments]] # Hora
+    type = 'time'
+    style = 'diamond'
+    leading_diamond = '¯éÂ'
+    trailing_diamond = '¯é┤'
+    foreground = 'p:fg0'
+    background = 'p:aqua'
+    template = '<b>¯Ää {{ .CurrentDate | date "15:04:05" }}</b>'
+
+[[blocks]] # Nova linha
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+  
+  [[blocks.segments]]
+    type= "text"        
+    style= "plain"
+    foreground= "p:fg1"
+    template= ">"
