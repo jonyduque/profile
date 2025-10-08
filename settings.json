@@ -1,0 +1,290 @@
+{
+    // Windows Terminal settings
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions":
+    [
+        {
+            "command":
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        }
+    ],
+    "alwaysShowNotificationIcon": true,
+    "centerOnLaunch": true,
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "disableAnimations": false,
+    "experimental.detectURLs": true,
+    "firstWindowPreference": "defaultProfile",
+    "keybindings":
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+f"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "minimizeToNotificationArea": false,
+    "newTabMenu":
+    [
+        {
+            "icon": null,
+            "profile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+            "type": "profile"
+        },
+        {
+            "icon": null,
+            "profile": "{a8dd9dab-e82e-525f-a5dd-ef28c814130d}",
+            "type": "profile"
+        },
+        {
+            "allowEmpty": false,
+            "entries":
+            [
+                {
+                    "type": "remainingProfiles"
+                }
+            ],
+            "icon": null,
+            "inline": "never",
+            "name": "Outros",
+            "type": "folder"
+        }
+    ],
+    "profiles":
+    {
+        "defaults":
+        {
+            "antialiasingMode": "cleartype",
+            "autoMarkPrompts": true,
+            "colorScheme": "Catppuccin Frappe",
+            "cursorShape": "filledBox",
+            "elevate": false,
+            "experimental.repositionCursorWithMouse": true,
+            "font":
+            {
+                "axes":
+                {
+                    "wght": 400
+                },
+                "face": "CaskaydiaCove NF, Cascadia Code NF, FiraCode Nerd Font, Fira Code, Consolas, 'Courier New'",
+                "features":
+                {
+                    "calt": 1,
+                    "cv02": 1,
+                    "cv06": 1,
+                    "cv14": 1,
+                    "cv21": 1,
+                    "cv25": 1,
+                    "cv26": 1,
+                    "cv27": 1,
+                    "cv28": 1,
+                    "cv30": 1,
+                    "cv31": 1,
+                    "cv32": 1,
+                    "ss01": 1,
+                    "ss03": 1,
+                    "ss05": 1,
+                    "ss07": 1,
+                    "ss09": 1,
+                    "ss20": 1,
+                    "zero": 1
+                }
+            },
+            "showMarksOnScrollbar": true,
+            "snapOnInput": true
+        },
+        "list":
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoProfileLoadTime",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": true,
+                "name": "Windows PowerShell"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Prompt de comando"
+            },
+            {
+                "commandline": "pwsh -nologo",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell",
+                "source": "Windows.Terminal.PowershellCore"
+            },
+            {
+                "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+                "hidden": false,
+                "name": "Git Bash",
+                "source": "Git"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{a8dd9dab-e82e-525f-a5dd-ef28c814130d}",
+                "hidden": false,
+                "name": "Ubuntu",
+                "source": "Microsoft.WSL"
+            },
+            {
+                "commandline": "C:/msys64/msys2_shell.cmd -defterm -here -no-start -msys",
+                "guid": "{71160544-14d8-4194-af25-d05feeac7233}",
+                "icon": "C:/msys64/msys2.ico",
+                "name": "MSYS / MSYS2",
+                "startingDirectory": "C:/msys64/home/%USERNAME%"
+            },
+            {
+                "guid": "{0cd25eee-c938-5550-b61f-d37ca202779f}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{48b9843e-efeb-583a-9eb7-36051d53f881}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2019",
+                "source": "Windows.Terminal.VisualStudio"
+            }
+        ]
+    },
+    "schemes":
+    [
+        {
+            "name": "Catppuccin Frappe",
+
+            "cursorColor": "#F2D5CF",
+            "selectionBackground": "#626880",
+
+            "background": "#303446",
+            "foreground": "#C6D0F5",
+
+            "black": "#51576D",
+            "red": "#E78284",
+            "green": "#A6D189",
+            "yellow": "#E5C890",
+            "blue": "#8CAAEE",
+            "purple": "#F4B8E4",
+            "cyan": "#81C8BE",
+            "white": "#B5BFE2",
+
+            "brightBlack": "#626880",
+            "brightRed": "#E78284",
+            "brightGreen": "#A6D189",
+            "brightYellow": "#E5C890",
+            "brightBlue": "#8CAAEE",
+            "brightPurple": "#F4B8E4",
+            "brightCyan": "#81C8BE",
+            "brightWhite": "#A5ADCE"
+        },
+        {
+            "background": "#282828",
+            "black": "#282828",
+            "blue": "#458588",
+            "brightBlack": "#928374",
+            "brightBlue": "#83A598",
+            "brightCyan": "#8EC07C",
+            "brightGreen": "#B8BB26",
+            "brightPurple": "#D3869B",
+            "brightRed": "#FB4934",
+            "brightWhite": "#EBDBB2",
+            "brightYellow": "#FABD2F",
+            "cursorColor": "#FFFFFF",
+            "cyan": "#689D6A",
+            "foreground": "#EBDBB2",
+            "green": "#98971A",
+            "name": "Gruvbox Dark",
+            "purple": "#B16286",
+            "red": "#CC241D",
+            "selectionBackground": "#FFFFFF",
+            "white": "#A89984",
+            "yellow": "#D79921"
+        },
+        {
+            "background": "#1B1B1B",
+            "black": "#1B1B1B",
+            "blue": "#458588",
+            "brightBlack": "#928374",
+            "brightBlue": "#83A598",
+            "brightCyan": "#8EC07C",
+            "brightGreen": "#B8BB26",
+            "brightPurple": "#D3869B",
+            "brightRed": "#FB4934",
+            "brightWhite": "#EBDBB2",
+            "brightYellow": "#FABD2F",
+            "cursorColor": "#EBDBB2",
+            "cyan": "#689D6A",
+            "foreground": "#EBDBB2",
+            "green": "#98971A",
+            "name": "GruvboxDarkHard",
+            "purple": "#B16286",
+            "red": "#CC241D",
+            "selectionBackground": "#665C54",
+            "white": "#A89984",
+            "yellow": "#D79921"
+        }
+    ],
+    "searchWebDefaultQueryUrl": "https://www.google.com/search?q=%s",
+    "showTabsInTitlebar": true,
+    "showTerminalTitleInTitlebar": true,
+    "snapToGridOnResize": true,
+    "theme": "Catppuccin Frappe",
+    "themes": [
+        {
+            "name": "Catppuccin Frappe",
+            "tab": {
+                "background": "#303446FF",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
+            },
+            "tabRow": {
+                "background": "#292C3CFF",
+                "unfocusedBackground": "#232634FF"
+            },
+                "window": {
+                "applicationTheme": "dark"
+            }
+        }
+    ],
+    "trimBlockSelection": true,
+    "warning.confirmCloseAllTabs": false
+}
